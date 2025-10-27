@@ -1,0 +1,27 @@
+npm init playwright@latest
+npx playwright test
+npx playwright test --ui
+npx playwright test --project=chromium
+npx playwright test example
+npx playwright test --debug
+
+pip install --upgrade pip
+pip install playwright
+playwright install
+pip install pytest-playwright
+
+
+test -v - Ejecutar con detalles
+test -s - Mostrar prints
+test --headed - Ejecutar con navegador visible
+test --slowmo=1000 - Ejecutar más lento para ver qué pas
+test --base-url URL - Ejecuta con un base URL definido en el comando
+		     --tracing retain on - 
+		     --tracing retain-on-failure
+		     playwright show-trace /
+
+
+Ctrl + D en page.goto(URL) - Duplicar línea
+Shift + Alt + ↓ - Copiar test hacia abajo
+Ctrl + / - Comentar/descomentar tests
+Alt + Click - Crear múltiples cursores ocurrencias de la palabra
