@@ -1,44 +1,46 @@
-import {test, expect} from '@playwright/test';
+let edad: number = 25;
+let altura: number = 1.752323;
+let peso: number = 70;
 
-test.describe('Navegation to www.freerangetesters.com', () => {
+let suma: number = edad + altura + peso;
+let resta: number = edad - altura - peso;
+let multiplicacion: number = edad * altura * peso;
+let division: number = edad / altura / peso;
 
-  const secciones = [
-    { nombre: 'Cursos', url: '/cursos', tituloEsperado: 'Cursos'},
-    { nombre: 'Udemy', url: '/udemy', tituloEsperado: 'Udemy'},
-    { nombre: 'Recursos', url: '/recursos', tituloEsperado: 'Recursos'},
-    { nombre: 'Blog', url: '/blog', tituloEsperado: 'Free Range Testers'}
-  ];
-  for (const seccion of secciones) {
+let primerNombre: string = "Juan";
+let apellido: string = "Pérez";
+let nombreCompleto: string = primerNombre + " " + apellido;
 
-    test(`Los links principales redirigen correctamente a la seccion de ${seccion.nombre}`, async ({page}) => {
+let estaActivo: boolean = true;
+let esMayorDeEdad: boolean = edad >= 18;
+let tieneLicencia: boolean = false;
 
-      await test.step('Estando yo en la web principal de Free Range Testers', async () => {
-        await page.goto('https://www.freerangetesters.com')
-        await expect(page).toHaveTitle('Free Range Testers');
-      })
+if(estaActivo && esMayorDeEdad) {
+    console.log("El usuario está activo y es mayor de edad.");
+} else {
+    console.log("El usuario no está activo o no es mayor de edad.");
+}
 
-      await test.step(`Cuando hago click en "${seccion.nombre}"`, async () => {
-        await page.getByRole('link', {name: seccion.nombre, exact: true}).click();
-        await page.waitForURL(`**${seccion.url}`);
-      })
+let numeros: number[] = [1, 2, 3, 4, 5];
+let frutas: string[] = ["manzana", "banana", "naranja"];
+let persona: string[] = ["Anibal", "Jara", "Roberto", "Ana", "Maria"];
 
-      await test.step(`Soy redirigido a la seccion de título "${seccion.tituloEsperado}"`, async () => {
-        await expect(page).toHaveURL(new RegExp(`.*${seccion.url.replace('/', '')}`));
-        await expect(page).toHaveTitle(seccion.tituloEsperado);
-      })
-    });
-  }
-})
+console.log(persona[0]); // Accediendo al primer elemento del array
+console.log(frutas.length); // Longitud del array de frutas
+frutas.push("uva"); // Agregando un elemento al array de frutas
+frutas.pop(); // Eliminando el último elemento del array de frutas
+frutas.splice(1, 1); // Eliminando el segundo elemento del array de frutas
+frutas.sort(); // Ordenando el array de frutas
+frutas.reverse(); // Revirtiendo el array de frutas
 
-//Filtrado de elementos por texto
-await page.getByRole('listitem')
-  .filter({ hasText: 'Cursos' })
-  .getByRole('button', { name: 'Comprar' })
-  .click();
-
-//Filtrado de elementos por locator (mas robusto)
-await page.getByRole('listitem')
-  .filter({ has: page.getbyRole('heading', { name: 'Cursos' }) })
-  .getByRole('button', { name: 'Comprar' })
-  .click();
-
+console.log(persona[0]); // Accediendo al primer elemento de la tupla
+console.log(persona[1]); // Accediendo al segundo elemento de la tupla
+console.log(persona[2]); // Accediendo al tercer elemento de la tupla
+console.log(persona.length); // Longitud de la tupla
+persona.push("nuevo valor"); // Agregando un elemento a la tupla
+persona.pop(); // Eliminando el último elemento de la tupla
+persona.splice(0, 1); // Eliminando el primer elemento de la tupla
+persona.sort(); // Ordenando la tupla
+persona.reverse(); // Revirtiendo la tupla
+console.log(persona);
+console.log(suma);
