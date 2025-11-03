@@ -38,7 +38,7 @@ export default defineConfig({
     {
       name: 'PC',
       //testIgnore: "**/AutomationSandbox.spec.ts",
-      testMatch: "**/AutomationSandbox.spec.ts",
+      testMatch: ["**/AutomationSandbox.spec.ts", "**/seed.spec.ts"],
       retries: 1,
       use: { ...devices['Desktop Chrome'] },
     },
