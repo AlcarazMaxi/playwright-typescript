@@ -26,28 +26,41 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3000/sandbox-automation-testing',
     testIdAttribute: 'data-testid', // Para usar en el selector de elementos
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    video: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'PC',
+      //testIgnore: "**/AutomationSandbox.spec.ts",
+      testMatch: "**/AutomationSandbox.spec.ts",
+      retries: 1,
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'iPhone',
+      testMatch: "**/AutomationSandbox.spec.ts",
+      retries: 1,
+      use: { ...devices['iPhone 14'] },
     },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'iPad',
+      testMatch: "**/AutomationSandbox.spec.ts",
+      retries: 1,
+      use: { ...devices['iPad Air'] },
     },
+
+    //{
+    //  name: 'webkit',
+    //  use: { ...devices['Desktop Safari'] },
+    //},
 
     /* Test against mobile viewports. */
     // {

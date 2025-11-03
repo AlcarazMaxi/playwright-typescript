@@ -19,9 +19,18 @@ test --base-url URL - Ejecuta con un base URL definido en el comando
 		     --tracing retain on - 
 		     --tracing retain-on-failure
 		     playwright show-trace /
+			 npx playwright test --project=Tablet 
+			 npx playwright test --ui
 
+$env:ENVIRONMENT = "development"
 
 Ctrl + D en page.goto(URL) - Duplicar línea
 Shift + Alt + ↓ - Copiar test hacia abajo
 Ctrl + / - Comentar/descomentar tests
 Alt + Click - Crear múltiples cursores ocurrencias de la palabra
+Shift + Alt + F will run your configured formatter (such as prettier, for a JavaScript project) on the currently opened file
+Ctrl + Shift + F (Windows), or Cmd + Shift + F (Mac), to search the text contents of all the files in your workspace. Then Ctrl + Shift + H (Windows), or Cmd + Shift + H (Mac), if you want to run a find-and-replace.
+If you need to remove a line, Ctrl + Shift + K (Windows), or Cmd + Shift + K (Mac), will delete it.
+Ctrl + B (Windows), or Cmd + B (Mac), will hide the sidebar - which has the file list and extensions menu.
+
+
